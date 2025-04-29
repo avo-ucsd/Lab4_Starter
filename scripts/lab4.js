@@ -6,16 +6,21 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
-    // This is a comment for lab 4.
-    if (add) {
-        let result = 0;
+    // Parameter checking
+    if ((typeof num1 === "number") && (typeof num2 === "number") && (typeof add === "boolean")) {
+        // Passed validation
+        if (add) {
+            let result = 0;
 
-        result = num1 + num2;
+            result = num1 + num2;
 
-        return result;
-    }
-    else {
-        return add;
+            return result;
+        }
+        else {
+            return add;
+        }
+    } else {
+        return false;
     }
 }
 
@@ -28,13 +33,18 @@ function sumValues(num1, num2, add) {
 function discountPrices(prices, discount) {
     const discounted = []
     const length = prices.length;
-    let discountedPrice = 0
-    for(let i = 0; i < length; i++) {
-        discountedPrice = prices[i] * (1 - discount);
-        discounted.push(discountedPrice);
-    }
 
-    return discounted;
+    if ((length !== 0) && (typeof prices === "object") && (discount >= 0) && (discount <= 1)) {
+        let discountedPrice = 0
+        for(let i = 0; i < length; i++) {
+            discountedPrice = prices[i] * (1 - discount);
+            discounted.push(discountedPrice);
+        }
+
+        return discounted;
+    } else {
+        return false;
+    }
 }
 
 module.exports = {sumValues, discountPrices};
