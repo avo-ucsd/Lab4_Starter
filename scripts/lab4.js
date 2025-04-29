@@ -6,6 +6,7 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
+    // This is a comment for lab 4.
     if (add) {
         const result = 0;
 
